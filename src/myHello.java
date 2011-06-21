@@ -12,6 +12,7 @@ public class myHello
 		System.out.print( "ss" );
 		System.out.print( "aaa" );
 		System.out.print( "ABC" );
+		int a = 0;
 	}
 
 }
