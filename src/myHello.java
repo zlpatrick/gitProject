@@ -14,6 +14,8 @@ public class myHello
 		System.out.print( "ABC" );
 		int a = 0;
 		int b = 0;
+		int c = 10; 
+		System.out.print( "sss" );
 	}
 
 }
