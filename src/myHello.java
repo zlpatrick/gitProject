@@ -11,6 +11,7 @@ public class myHello
 		// TODO Auto-generated method stub
 		System.out.print( "ss" );
 		System.out.print( "aaa" );
+		System.out.print( "ABC" );
 	}
 
 }
