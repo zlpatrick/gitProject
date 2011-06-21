@@ -16,6 +16,7 @@ public class myHello
 		int b = 0;
 		int c = 10; 
 		System.out.print( "sss" );
+		System.out.print( "BBB" );
 	}
 
 }
