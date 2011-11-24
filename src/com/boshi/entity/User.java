@@ -9,7 +9,7 @@ public class User {
 		this.userID = userID;
 	}
 	
-	public String getUserID()
+	public String getUserID( )
 	{
 		return this.userID;
 	}
