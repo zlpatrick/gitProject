@@ -7,6 +7,7 @@ public class BoshiPacketUtil
 {
 	public static BoshiPacket generateBoshiPacket( int length, byte[] packetBuffer)
 	{
+		
 		return null;
 	}
 }

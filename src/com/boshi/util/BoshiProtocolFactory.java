@@ -5,7 +5,7 @@ import com.boshi.api.IBoshiProtocol;
 
 public class BoshiProtocolFactory
 {
-	public static IBoshiProtocol createBProtocol(short commandID)
+	public static IBoshiProtocol createProtocol(short commandID)
 	{
 		return null;
 	}

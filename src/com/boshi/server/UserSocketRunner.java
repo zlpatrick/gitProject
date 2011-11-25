@@ -28,7 +28,7 @@ public class UserSocketRunner implements Runnable
 				byte[] packetBuffer = new byte[100];
 				int length = this.userSocket.getInputStream( ).read( packetBuffer );
 				BoshiPacket boshiPacket = BoshiPacketUtil.generateBoshiPacket( length,packetBuffer );
-				IBoshiProtocol procol = BoshiProtocolFactory.createBProtocol( boshiPacket.getCommandID( ) );
+				IBoshiProtocol procol = BoshiProtocolFactory.createProtocol( boshiPacket.getCommandID( ) );
 				procol.process( boshiPacket, userSocket );
 			}
 			catch ( IOException e )
