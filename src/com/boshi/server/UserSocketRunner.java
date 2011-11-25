@@ -20,7 +20,8 @@ public class UserSocketRunner implements Runnable
 		{
 			try
 			{
-				this.userSocket.getOutputStream( );
+				byte[] packetHeadBuffer = new byte[100];
+				int headLength = this.userSocket.getInputStream( ).read( packetHeadBuffer );
 			}
 			catch ( IOException e )
 			{
