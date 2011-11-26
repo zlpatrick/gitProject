@@ -9,12 +9,15 @@ import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.boshi.entity.GameHouse;
+
 public class BoshiServer
 {
 
 	private ServerSocket serverSocket;
 	
 	private static Map<String,Socket> userSocketMap = new HashMap<String,Socket>();
+	private static Map<Integer,GameHouse> houseList = new HashMap<Integer,GameHouse>();
 
 	public BoshiServer( int port ) throws IOException
 	{
@@ -27,7 +30,7 @@ public class BoshiServer
 		serverSocket = new ServerSocket( port, 0, InetAddress.getByName( host ) );
 	}
 
-	public static void userEnter(String userid, Socket userSocket)
+	public static synchronized void userEnter(String userid, Socket userSocket)
 	{
 		userSocketMap.put( userid, userSocket );
 	}
@@ -42,8 +45,24 @@ public class BoshiServer
 			return null;
 	}
 	
+	public static GameHouse getHouse( int houseID )
+	{
+		if( houseList.containsKey(Integer.valueOf(houseID)))
+		{
+			return houseList.get(Integer.valueOf(houseID));
+		}
+		else 
+			return null;
+	}
+	
+	public static void InitSystemConfig()
+	{
+		
+	}
+	
 	public static void main( String[] args ) throws IOException
 	{
+		InitSystemConfig();
 		BoshiServer server = new BoshiServer( 8000 );
 
 		while ( true )
