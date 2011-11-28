@@ -7,12 +7,33 @@ public class GameHouse {
 
 	private int personCount;
 	private int houseID;
+	private int houseType;
+	@SuppressWarnings("rawtypes")
 	private Map userMap;
 	
+	@SuppressWarnings("rawtypes")
 	public GameHouse(int houseID)
 	{
 		this.houseID = houseID;
 		this.userMap = new HashMap();
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public GameHouse(int houseID,int houseType)
+	{
+		this.houseID = houseID;
+		this.houseType = houseType;
+		this.userMap = new HashMap();
+	}
+	
+	public int getHouseType()
+	{
+		return this.houseType;
+	}
+	
+	public void setHouseType( int houseType )
+	{
+		this.houseType = houseType;
 	}
 	
 	public int getHouseID()
@@ -25,6 +46,7 @@ public class GameHouse {
 		return this.personCount;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public synchronized void userEnter(User user)
 	{
 		this.userMap.put(user.getUserID(), user);

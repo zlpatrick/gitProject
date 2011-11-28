@@ -2,6 +2,7 @@ package com.boshi.protocol.detail;
 
 import java.net.Socket;
 
+import com.boshi.entity.User;
 import com.boshi.packet.BoshiPacket;
 import com.boshi.protocol.BoshiProtocol;
 import com.boshi.server.BoshiServer;
@@ -18,8 +19,9 @@ public class EnterHouseListProtocol extends BoshiProtocol
 		byte[] packetContent = packet.getContent( );
 		byte[] userIDBytes = ByteArrayUtil.getByteArrayInterval(packetContent, 0, 15);
 		String userID = new String(userIDBytes);
+		User user = new User(userID);
 		
-		BoshiServer.userEnter(userID, userSocket);
+		BoshiServer.userEnter(user, userSocket);
 	}
 
 }

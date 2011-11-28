@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.boshi.entity.GameHouse;
+import com.boshi.entity.User;
 
 public class BoshiServer
 {
@@ -18,6 +19,7 @@ public class BoshiServer
 	
 	private static Map<String,Socket> userSocketMap = new HashMap<String,Socket>();
 	private static Map<Integer,GameHouse> houseList = new HashMap<Integer,GameHouse>();
+	private static Map<String,User> useInRoomHallListMap = new HashMap<String,User>();
 
 	public BoshiServer( int port ) throws IOException
 	{
@@ -30,9 +32,10 @@ public class BoshiServer
 		serverSocket = new ServerSocket( port, 0, InetAddress.getByName( host ) );
 	}
 
-	public static synchronized void userEnter(String userid, Socket userSocket)
+	public static synchronized void userEnter(User user, Socket userSocket) 
 	{
-		userSocketMap.put( userid, userSocket );
+		userSocketMap.put(user.getUserID(), userSocket);
+		useInRoomHallListMap.put(user.getUserID(), user);
 	}
 	
 	public static Socket getUserSocket( String userid )
@@ -55,9 +58,23 @@ public class BoshiServer
 			return null;
 	}
 	
+	public static User[] getUsersInHouseHall()
+	{
+		return (User[])useInRoomHallListMap.values().toArray();
+	}
+	
+	public static GameHouse[] getHouseList()
+	{
+		return (GameHouse[])houseList.values().toArray();
+	}
+	
 	public static void InitSystemConfig()
 	{
-		
+		for( int i=1;i<=20;i++)
+		{
+			GameHouse house = new GameHouse(i);
+			houseList.put(Integer.valueOf(i), house);
+		}
 	}
 	
 	public static void main( String[] args ) throws IOException
