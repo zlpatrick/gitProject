@@ -8,6 +8,7 @@ public class GameHouse {
 	private int personCount;
 	private int houseID;
 	private int houseType;
+	private int status;
 	@SuppressWarnings("rawtypes")
 	private Map userMap;
 	
@@ -16,6 +17,16 @@ public class GameHouse {
 	{
 		this.houseID = houseID;
 		this.userMap = new HashMap();
+	}
+	
+	public void setStatus( int status )
+	{
+		this.status = status;
+	}
+	
+	public int getStatus()
+	{
+		return this.status;
 	}
 	
 	@SuppressWarnings("rawtypes")
