@@ -79,5 +79,8 @@ public class GameHouse {
 		return null;
 	}
 	
-	
+	public User[] getUserList()
+	{
+		return (User[])this.userMap.values( ).toArray( );
+	}
 }

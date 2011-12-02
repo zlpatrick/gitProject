@@ -1,7 +1,6 @@
 
 package com.boshi.server;
 
-import java.io.IOException;
 import java.net.Socket;
 
 import com.boshi.api.IBoshiProtocol;
@@ -31,7 +30,7 @@ public class UserSocketRunner implements Runnable
 				IBoshiProtocol procol = BoshiProtocolFactory.createProtocol( boshiPacket.getCommandID( ) );
 				procol.process( boshiPacket, userSocket );
 			}
-			catch ( IOException e )
+			catch ( Exception e )
 			{
 				e.printStackTrace( );
 			}

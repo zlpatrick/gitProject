@@ -1,9 +1,12 @@
 package com.boshi.util;
 
+import java.io.UnsupportedEncodingException;
+
 
 public class DataTypeUtil
 {
-
+	public static String DEFAULTCHARSETNAME = "UTF-8";
+	
 	public static int byteToInt( byte[] b )
 	{
 		int mask = 0xff;
@@ -26,5 +29,19 @@ public class DataTypeUtil
 		result[2] = (byte) ((i >> 8) & 0xFF);
 		result[3] = (byte) (i & 0xFF);
 		return result;
+	}
+	
+	public static byte[] getFixedLengthStringBytes(String str,int length) throws UnsupportedEncodingException
+	{
+		byte[] result = new byte[length];
+		byte[] temp = str.getBytes( DEFAULTCHARSETNAME );
+		
+		System.arraycopy( temp, 0, result, 0, temp.length-1 );
+		return result;
+	}
+	
+	public static byte[] getStringBytes(String str) throws UnsupportedEncodingException
+	{
+		return str.getBytes( DEFAULTCHARSETNAME );
 	}
 }
