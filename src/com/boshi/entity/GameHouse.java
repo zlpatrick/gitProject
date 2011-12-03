@@ -6,9 +6,11 @@ import java.util.Map;
 public class GameHouse {
 
 	private int personCount;
+	private String name;
 	private int houseID;
 	private int houseType;
 	private int status;
+	private String creatorID;
 	@SuppressWarnings("rawtypes")
 	private Map userMap;
 	
@@ -24,9 +26,29 @@ public class GameHouse {
 		this.status = status;
 	}
 	
+	public void setCreatorID(String ID)
+	{
+		this.creatorID = ID;
+	}
+	
+	public String getCreatorID()
+	{
+		return this.creatorID;
+	}
+	
 	public int getStatus()
 	{
 		return this.status;
+	}
+	
+	public String getName()
+	{
+		return this.name;
+	}
+	
+	public void setName(String name)
+	{
+		this.name= name;
 	}
 	
 	@SuppressWarnings("rawtypes")
