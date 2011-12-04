@@ -44,4 +44,9 @@ public class DataTypeUtil
 	{
 		return str.getBytes( DEFAULTCHARSETNAME );
 	}
+	
+	public static String getStringFromBytes(byte[] bytes) throws UnsupportedEncodingException 
+	{
+		return new String( bytes, DEFAULTCHARSETNAME );
+	}
 }

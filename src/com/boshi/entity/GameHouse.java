@@ -6,11 +6,13 @@ import java.util.Map;
 public class GameHouse {
 
 	private int personCount;
-	private String name;
+	private String name = "小博士游戏房间";
 	private int houseID;
-	private int houseType;
-	private int status;
+	private int houseType = 0;
+	private int status = 0;
 	private String creatorID;
+	public static int SYSTEMCREATED = 0;
+	public static int USERCREATED = 1;
 	@SuppressWarnings("rawtypes")
 	private Map userMap;
 	

@@ -58,6 +58,11 @@ public class BoshiServer
 			return null;
 	}
 	
+	public static synchronized void createHouse(GameHouse house) 
+	{
+		houseList.put(house.getHouseID(), house);
+	}
+	
 	public static User[] getUsersInHouseHall()
 	{
 		return (User[])useInRoomHallListMap.values().toArray();
